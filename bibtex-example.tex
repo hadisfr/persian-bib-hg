@@ -1,0 +1,27 @@
+\documentclass[11pt,a4paper]{article}
+
+% استفاده از بسته‌ی زیر الزامی نیست ولی با استفاده از آن می‌توانید لینکهای رنگی به مراجع خود داشته باشید. 
+\usepackage[colorlinks]{hyperref}
+
+\usepackage{xepersian}
+\settextfont{XB Zar}
+\setlatintextfont[Scale=1]{Linux Libertine}
+
+\title{نمونه خروجی با استیل فارسی \lr{unsrt-fa} برای \lr{BibTeX} در زی‌پرشین}
+\author{}\date{}
+\begin{document}
+\maketitle
+
+مرجع \cite{Omidali82phdThesis} یک نمونه پروژه دکترا و مرجع\cite{Abadi87} یک نمونه مقاله مجله فارسی است.
+مرجع \cite{Baker02limits} یک نمونه مقاله انگلیسی است که در بین مراجع فارسی قرار گرفته است، مرجع \cite{Amintoosi87afzayesh}  یک نمونه  مقاله کنفرانس فارسی و
+مرجع \cite{Pedram80osool} یک نمونه کتاب فارسی با ذکر مترجمان و ویراستاران فارسی است. مرجع \cite{Khalighi07MscThesis} یک نمونه پروژه کارشناسی ارشد انگلیسی و
+\cite{Khalighi87xepersian} هم یک نمونه متفرقه  می‌باشند.
+
+{\small
+% در اینجا می‌توانید سبک‌های مختلف را گذاشته و تفاوت خروجی را ببینید
+\bibliographystyle{ieeetr-fa}%{acm-fa}%{plain-fa}%{unsrt-fa}%
+
+\bibliography{SomeReferences}
+}
+
+\end{document}

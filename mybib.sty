@@ -1,0 +1,38 @@
+% Mahmood Amintoosi, 2009, http://webpages.iust.ac.ir/mamintoosi
+% For bibliography indention in chicago-fa.bst and plainnat-fa.bst
+ \newdimen\bibindent
+\bibindent=1.5em
+\@ifundefined{refname}%
+   {\@ifundefined{chapter}%
+     {\newcommand{\refname}{References}}%
+     {\newcommand{\refname}{Bibliography}}%
+   }%
+   {}%
+\@ifundefined{chapter}%
+ {\def\thebibliography#1{\section*{\refname\@mkboth
+   {\uppercase{\refname}}{\uppercase{\refname}}}\list
+   {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}
+   \rightmargin\labelwidth
+   \advance\rightmargin\labelsep
+   \advance\rightmargin\bibindent
+   \itemindent -\bibindent
+   \listparindent \itemindent
+   \parsep \z@
+   \usecounter{enumi}}
+   \def\newblock{}
+   \sloppy
+   \sfcode`\.=1000\relax}}
+ {\def\thebibliography#1{\chapter*{\refname\@mkboth
+   {\uppercase{\refname}}{\uppercase{\refname}}}\list
+   {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}
+   \rightmargin\labelwidth
+   \advance\rightmargin\labelsep
+   \advance\rightmargin\bibindent
+   \itemindent -\bibindent
+   \listparindent \itemindent
+   \parsep \z@
+   \usecounter{enumi}}
+   \def\newblock{}
+   \sloppy
+   \sfcode`\.=1000\relax}}
+

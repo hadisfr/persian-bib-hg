@@ -1,0 +1,10 @@
+
+These files are Persian translations of some of the classical BibTeX style files. 
+Currently  7 files unsrt-fa.bst, acm-fa.bst, ieeetr-fa.bst, plain-fa.bst,Asa-fa.bst, chicago-fa.bst and plainnat-fa.bst are modified for Persian documents prepared with XePersian (a Persian typesetting package over XeTeX).
+Hence this package is dependent to XePersian Package.
+Unlike bib-fr package which can be used only for French references, the Persian .bst files simultaneously do handle Latin and Persian references. 
+File 'cp1256fa.csf' is prepared for correct sorting of Persian references and three fields named 'LANGUAGE', 'TRANSLATOR' and 'AUTHORFA' are defined. 
+Also a Persian user guide is  included in the package.
+
+I am Mahmood Amintoosi a previous member of XePersian development team.
+Xepersian is a Persian typesetting package over XeTeX, which its last version (1.0.4) has been uploaded to CTAN recently. Until version 1.0.3 the Persian bibtex syle files (unsrt-fa,ieeetr-fa,plain-fa,acm-fa) was included with the XePersian package, but from the latest version we decided to split the bibtex styles from XePersian files, because Vafa Khalighi, the maintainer of XePersian is going to freeze it, but I am working on new bibtex styles and fixing the previous files, yet.

@@ -1,0 +1,110 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\Persian
+\bibitem[آبادی(1387)]{Abadi87}
+مصطفی آبادی.
+\newblock موضوعی جدید در هندسه محاسباتی.
+\newblock \emph{مجله فارسی نمونه}, 1\penalty0 (2):\penalty0
+  22--30, آبان 1387.
+
+\Persian
+\bibitem[استالینگ(۱۳۸۰)]{Pedram80osool}
+ویلیام استالینگ.
+\newblock \emph{اصول طراحی و ویژگیهای داخلی
+  سیستم‌های عامل}.
+\newblock  ترجمه‌ی محسن صدیقی‌~مشکنانی و حسین
+  پدرام,  ویراسته‌ی محمود برنجکوب.
+\newblock نشر شیخ بهایی, اصفهان,  ویرایش سوم,
+  بهار ۱۳۸۰.
+
+\Persian
+\bibitem[امیدعلی(1382)]{Omidali82phdThesis}
+مهدی امیدعلی.
+\newblock \emph{تابع هیلبرت}.
+\newblock  پایان‌نامه دکترا, دانشکده ریاضی،
+  دانشگاه امیرکبیر, تیر 1382.
+
+\Persian
+\bibitem[پورموسی(۱۳۸۸)]{Pourmousa88mscThesis}
+امیرمسعود پورموسی.
+\newblock یک موضوع فیزیک.
+\newblock  پایان‌نامه کارشناسی‌ارشد, دانشکده
+  فیزیک، دانشگاه صنعتی‌شریف, مرداد ۱۳۸۸.
+\newblock (در حال انجام).
+
+\Persian
+\bibitem[خلیقی و دیگران(۱۳۸۷)خلیقی, امیدعلی,
+  واحدی, و امین‌طوسی]{Khalighi87xepersian}
+وفا خلیقی, مهدی امیدعلی, مصطفی واحدی, و
+  محمود امین‌طوسی.
+\newblock زی‌پرشین (\lr{\XePersian}): بسته فارسی برای
+  حروف‌چینی در \lr{\LaTeX2e}.
+\newblock
+  \lr{\href{http://developer.berlios.de/projects/xepersian}{http://developer.b%
+erlios.de/projects/xepersian}}, ۱۳۸۷.
+
+\Persian
+\bibitem[فتحی و دیگران(1387)فتحی, مزینی, و
+  امین‌طوسی]{Amintoosi87afzayesh}
+محمود فتحی, ناصر مزینی, و محمود امین‌طوسی.
+\newblock افزایش وضوح ناحیه‌ای.
+\newblock  در \emph{چهاردهمین کنفرانس ملی سالانه
+  انجمن کامپیوتر ایران}, تهران، ایران, اسفند
+  1387. دانشگاه امیرکبیر.
+
+\Latin
+\bibitem[امین‌طوسی و فتحی(2009)Amintoosi and
+  Fathy]{Amintoosi09video}
+M.~Amintoosi and M.~Fathy.
+\newblock Video resolution enhancement in the presence of moving objects.
+\newblock  In \emph{International Conference on Image Processing, Computer
+  Vision, and Pattern Recognition}, Las Vegas, USA, July 2009.
+
+\Latin
+\bibitem[امین‌طوسی و دیگران(2009{\natexlab{a}})Amintoosi,
+  Fathy, and Mozayani]{Amintoosi09precise}
+M.~Amintoosi, M.~Fathy, and N.~Mozayani.
+\newblock Precise image registration with structural similarity error
+  measurement applied to super-resolution.
+\newblock \emph{{EURASIP} {J}ournal on {A}pplied {S}ignal {P}rocessing},
+  2009:\penalty0 7 pages, 2009{\natexlab{a}}.
+\newblock URL \url{http://www.hindawi.com/journals/asp/2009/305479.html}.
+\newblock {A}rticle ID 305479.
+
+\Latin
+\bibitem[امین‌طوسی و دیگران(2009{\natexlab{b}})Amintoosi,
+  Fathy, and Mozayani]{Amintoosi09regional}
+M.~Amintoosi, M.~Fathy, and N.~Mozayani.
+\newblock Regional varying image super-resolution.
+\newblock  In \emph{IEEE International Joint Conference on Computational
+  Sciences and Optimization},  Vol.~1,  pp. 913--917, Sanya, China, April 23-26
+  2009{\natexlab{b}}.
+
+\Latin
+\bibitem[Baker and Kanade(2002)]{Baker02limits}
+Simon Baker and Takeo Kanade.
+\newblock Limits on super-resolution and how to break them.
+\newblock \emph{IEEE Trans. Pattern Anal. Mach. Intell.}, 24\penalty0
+  (9):\penalty0 1167--1183, 2002.
+\newblock ISSN 0162-8828.
+
+\Latin
+\bibitem[بورمن(2004)Borman]{Borman04thesis}
+Sean Borman.
+\newblock \emph{Topics in Multiframe Superresolution Restoration}.
+\newblock  Ph.D. disseration , University of Notre Dame, Notre Dame, IN, May
+  2004.
+
+\Latin
+\bibitem[خلیقی(2007)Khalighi]{Khalighi07MscThesis}
+Vafa Khalighi.
+\newblock Category theory.
+\newblock  Master's thesis, Sydny Univ., April 2007.
+
+\end{thebibliography}
+\Persian
