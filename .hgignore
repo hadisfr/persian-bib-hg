@@ -1,0 +1,18 @@
+syntax: glob
+source/
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.loa
+*.lof
+*.log
+*.lot
+*.out
+*.pdfsync
+*.ptd
+*.synctex
+*.toc

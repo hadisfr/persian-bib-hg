@@ -2,7 +2,7 @@ Persian-bib, V0.4			2010/01/25
 Author: Mahmood Amintoosi, http://webpages.iust.ac.ir/mamintoosi
 
 These files are Persian translations of some of the classical BibTeX style files. 
-Unlike bib-fr package which can be used only for French references, the Persian .bst files simultaneously do handle Latin and Persian references. 
+Unlike bib-fr package which can be used only for French references, the Persian .bst files simultaneously handle both Latin and Persian references. 
 
 File 'cp1256fa.csf' is prepared for correct sorting of Persian references and three fields named 'LANGUAGE', 'TRANSLATOR' and 'AUTHORFA' are defined. 
 
