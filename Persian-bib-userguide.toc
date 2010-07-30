@@ -1,9 +1,0 @@
-\contentsline {section}{\numberline {1}مقدمه}{2}{section.1}
-\contentsline {section}{\numberline {2}سبک‌های فعلی قابل استفاده در زی‌پرشین}{2}{section.2}
-\contentsline {section}{\numberline {3} نحوه استفاده از سبک‌های فارسی}{3}{section.3}
-\contentsline {section}{\numberline {4}یک فایل \begingroup \beginL \latinfont bib\endL \endgroup شامل چیست؟}{3}{section.4}
-\contentsline {section}{\numberline {5}استفاده از \begingroup \beginL \latinfont natbib\endL \endgroup }{4}{section.5}
-\contentsline {subsection}{\numberline {5\beginR .\endR 1}مثالها}{4}{subsection.5.1}
-\contentsline {section}{\numberline {6}مرتب‌سازی مراجع بر اساس نام نویسنده}{5}{section.6}
-\contentsline {section}{\numberline {7}چند نکته در مورد استفاده از سبک‌های فارسی}{6}{section.7}
-\contentsline {section}{\numberline {8}پرسش و پاسخ}{7}{section.8}
