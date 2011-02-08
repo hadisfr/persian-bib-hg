@@ -3,12 +3,15 @@
 %%
 %% by: Mahmood Amintoosi, m.amintoosi@gmail.com
 %% For XePersian, a Persian Typsetting Package in XeTeX
-%% 2010/01/15
 %% It may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either this version
 %% of this license or (at your option) any later version.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% History
+%% 2011/02/7, Removing Persian and Latin commands, 
+%% 		Making each bbl word, as a function
+%% 
 %% Original Copyright
 %% File: `plainnat.bst'
 %% A modification of `plain.bst' for use with natbib package 
@@ -60,7 +63,7 @@
 ENTRY
   { address
     author
-	authorfa
+    authorfa
     booktitle
     chapter
     doi
@@ -73,7 +76,7 @@ ENTRY
     issn
     journal
     key
-	language
+    language
     month
     note
     number
@@ -83,7 +86,7 @@ ENTRY
     school
     series
     title
-	translator
+    translator
     type
     url
     volume
@@ -92,10 +95,7 @@ ENTRY
   {}
   { label extra.label sort.label short.list }
 
-INTEGERS { output.state before.all mid.sentence after.sentence after.block }
-STRINGS {bbl.and bbl.etal bbl.editors bbl.editor bbl.edition bbl.volume bbl.of bbl.number
- bbl.in bbl.pages bbl.page bbl.chapter bbl.series bbl.techrep }%bbl.mthesis bbl.phdthesis
-%}%bbl.translator}% bbl.formatnames}
+INTEGERS { output.state before.all mid.sentence after.sentence after.block fa.isInLabel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Persian Functions    %%
@@ -109,47 +109,189 @@ FUNCTION {fa.isPersianLanguage}
   if$
 }
 
-FUNCTION {keywords.fa}
+% Here are the language-specific definitions for explicit words.
+ % Each function has a name bbl.xxx where xxx is the English word.
+ % The languages selected here is ENGLISH and Farsi
+FUNCTION {bbl.and}
+{ 
+fa.isInLabel
+{" و "}% If authorfa exists
 {
-  " و "  'bbl.and  :=
-  " و دیگران"  'bbl.etal  :=
-  " ویراستاران "  'bbl.editors  :=
-  " ویراسته‌ی "  'bbl.editor  :=
-  " ویرایش "  'bbl.edition    :=
-  " جلد "  'bbl.volume :=
-  " از "  'bbl.of :=
-  " شماره "  'bbl.number :=
-  " در "  'bbl.in  :=
-  " صفحات "  'bbl.pages  :=
-  " ص."  'bbl.page  :=
-  " فصل "  'bbl.chapter :=
-  " سری " 'bbl.series :=
-  " گزارش طرح تحقیقی" 'bbl.techrep :=
-%  " پایان‌نامه کارشناسی‌ارشد" 'bbl.mthesis  :=
- % " پایان‌نامه دکترا"  'bbl.phdthesis :=
- % " ترجمه‌ی " 'bbl.translator :=
+  fa.isPersianLanguage
+    {" و "}
+    {" and "}
+  if$
+}
+if$  
 }
 
-FUNCTION {keywords.en}
+FUNCTION {bbl.editors}
+{ 
+fa.isPersianLanguage
+  { "ویراستاران"}
+  { "eds."}
+if$
+}
+
+FUNCTION {bbl.editor}
+{ 
+fa.isPersianLanguage
+  {  "ویراستار"}
+  {  "ed." }
+if$
+}
+
+FUNCTION {bbl.edby}
 {
-  " and "  'bbl.and  :=
-  " et~al."  'bbl.etal  :=
-  " Eds."  'bbl.editors  :=
-  " Ed."  'bbl.editor  :=
-  " Ed."  'bbl.edition    :=
-  " Vol."  'bbl.volume :=
-  " of "  'bbl.of :=
-  " No."  'bbl.number :=
-  " In "  'bbl.in  :=
-  " pp."  'bbl.pages  :=
-  " p."  'bbl.page  :=
-  " Ch."  'bbl.chapter :=
-  " Ser." 'bbl.series :=
-  " Tech. Rep." 'bbl.techrep :=
- % " Master's thesis" 'bbl.mthesis  :=
- % " Ph.D. disseration"  'bbl.phdthesis :=
- % " Translator " 'bbl.translator :=
-  %"{vv~}{ll}{, jj}{, f.}"   'bbl.formatnames :=
+fa.isPersianLanguage
+  {  " ویراسته‌ی "}
+  { " edited by " }
+if$
+}
+
+FUNCTION {bbl.edition}
+{
+fa.isPersianLanguage
+  {" ویرایش "}
+  {" ed. " }
+if$
+}
+
+FUNCTION {bbl.volume}
+{
+fa.isPersianLanguage
+  {" جلد "}
+  { " vol."}
+if$
+}
+
+FUNCTION {bbl.of}
+{
+fa.isPersianLanguage
+  { " از "}
+  { " of " }
+if$
+}
+
+FUNCTION {bbl.number}
+{
+fa.isPersianLanguage
+  {" شماره " }
+  { " no." }
+if$
+}
+
+FUNCTION {bbl.nr}
+{
+fa.isPersianLanguage
+  {" شماره "}
+  { " no." }
+if$
+}
+
+FUNCTION {bbl.in}
+{
+fa.isPersianLanguage
+  {" در "}
+  { " in " }
+if$
+}
+
+FUNCTION {bbl.pages}
+{
+fa.isPersianLanguage
+  {" صفحات "}
+  { " pp." }
+if$
+}
+
+FUNCTION {bbl.page}
+{
+fa.isPersianLanguage
+  {" ص." }
+  { " p." }
+if$
+}
+
+FUNCTION {bbl.chapter}
+{
+fa.isPersianLanguage
+  { " فصل " }
+  {" chap." }
+if$
+}
+
+FUNCTION {bbl.techrep}
+{
+fa.isPersianLanguage
+  { " گزارش طرح تحقیقی"}
+  { " Tech. Rep." }
+if$
+}
+
+FUNCTION {bbl.mthesis}
+{
+fa.isPersianLanguage
+  {" پایان‌نامه کارشناسی‌ارشد"}
+  { " Master's thesis" }
+if$
+}
+
+FUNCTION {bbl.phdthesis}
+{
+fa.isPersianLanguage
+  {" پایان‌نامه دکترا" }
+  { " Ph.D. thesis" }
+if$
+}
+
+FUNCTION {bbl.first}
+{ "1st" }
+
+FUNCTION {bbl.second}
+{ "2nd" }
+
+FUNCTION {bbl.third}
+{ "3rd" }
+
+FUNCTION {bbl.fourth}
+{ "4th" }
+
+FUNCTION {bbl.fifth}
+{ "5th" }
+
+FUNCTION {bbl.st}
+{ "st" }
+
+FUNCTION {bbl.nd}
+{ "nd" }
+
+FUNCTION {bbl.rd}
+{ "rd" }
+
+FUNCTION {bbl.th}
+{ "th" }
+
+% Added by M.Amintoosi
+FUNCTION {bbl.etal}
+{ 
+fa.isInLabel
+{" و دیگران"}% If authorfa exists
+{
+  fa.isPersianLanguage
+    {" و دیگران"}
+    {" et~al."}
+  if$
+}
+if$  
+}
+
+FUNCTION {bbl.translator}
+{ 
+fa.isPersianLanguage
+  { " ترجمه‌ی "}
+  {" Translated by "}
+if$
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -206,6 +348,13 @@ FUNCTION {fin.entry}
 { add.period$
   write$
   newline$
+  fa.isPersianLanguage
+    {skip$}
+    { newline$
+      "\end{LTRitems}" write$
+      newline$
+    }
+  if$
 }
 
 FUNCTION {new.block}
@@ -361,11 +510,11 @@ FUNCTION {format.translators}
     { "" }
     { fa.isPersianLanguage
     {
-	" ترجمه‌ی " translator format.names *
+	bbl.translator translator format.names *
 	}
 	{
 	  translator format.names
-	", " " translated by " * *
+	", " bbl.translator * *
 	}
     if$
     }
@@ -389,7 +538,12 @@ FUNCTION {format.issn}
 FUNCTION {format.url}
 { url empty$
     { "" }
-    { new.block "URL \url{" url * "}" * }
+    { 
+       fa.isPersianLanguage
+         {new.block "\url{" url * "}" * }
+         {new.block "URL \url{" url * "}" * }
+      if$
+    }
   if$
 }
 
@@ -478,15 +632,18 @@ FUNCTION {make.full.names}
 }
 
 FUNCTION {output.bibitem}
-{ newline$
+{ 
+  #0 'fa.isInLabel :=  %Initialize  fa.isInLabel 
+  newline$
   fa.isPersianLanguage
-    { keywords.fa
-  "\Persian" write$
-      newline$ }
-    { keywords.en
-  "\Latin" write$
-      newline$ }
+    { skip$ }
+    {
+     "\begin{LTRitems}" write$
+      newline$ 
+     "\resetlatinfont " write$  
+    }
   if$
+  newline$
   "\bibitem[" write$
   label write$
   ")" make.full.names duplicate$ short.list =
@@ -1246,6 +1403,17 @@ FUNCTION {chop.word}
 
 FUNCTION {format.lab.names}
 { 's :=
+	authorfa empty$
+	{
+	  %skip$
+	  #0 'fa.isInLabel :=
+	}
+	{% If authorfa exists
+	  authorfa 's  :=
+	  #1 'fa.isInLabel :=
+	}
+	if$  
+
   s #1 "{vv~}{ll}" format.name$
   s num.names$ duplicate$
   #2 >
@@ -1260,100 +1428,36 @@ FUNCTION {format.lab.names}
       if$
     }
   if$
+  #0 'fa.isInLabel :=  %reset  fa.isInLabel	
 }
 
 FUNCTION {author.key.label}
 {
-	% Push the two variables onto the stack
-	bbl.etal
-	bbl.and
-	authorfa empty$
-	{ 
-		fa.isPersianLanguage
-		{	
-		  " و دیگران"  'bbl.etal  :=
-		  " و "  'bbl.and  :=
-	    }
-		{	
-		  " et~al."  'bbl.etal  :=
-		  " and "  'bbl.and  :=
-		}
-	    if$
-		
-		author empty$
-		{ key empty$
-			{ cite$ #1 #3 substring$ }
-			'key
-		  if$
-		}
-		{ author format.lab.names }
-	  if$
-	}
-	{	
-	  " و دیگران"  'bbl.etal  :=
-	  " و "  'bbl.and  :=
-	authorfa format.lab.names 
-	}
-	  if$
-
-	% Pop the function result and store it on s
-	    's :=
-	% Push the two variables onto the stack
-	'bbl.and :=
-	'bbl.etal :=
-	% push the result into stack		
-	s
-
+  author empty$
+  { key empty$
+	{ cite$ #1 #3 substring$ }
+	'key
+     if$
+  }
+  { author format.lab.names }
+  if$
 }
 
 FUNCTION {author.editor.key.label}
 { 
-
-	% Push the two variables onto the stack
-	bbl.etal
-	bbl.and
-	authorfa empty$
-	{ 
-		fa.isPersianLanguage
-		{	
-		  " و دیگران"  'bbl.etal  :=
-		  " و "  'bbl.and  :=
-	    }
-		{	
-		  " et~al."  'bbl.etal  :=
-		  " and "  'bbl.and  :=
-		}
-	    if$
-		
-		author empty$
-		{ editor empty$
-			  { key empty$
-				   { "no key, author, or editor in " cite$ * warning$
-					 cite$ #1 #3 substring$ }
-				 'key
-			   if$
-			 }
-			  { editor format.lab.names }
-		  if$
-		}
-		{ author format.lab.names }
-	    if$
-
+	author empty$
+	{ editor empty$
+		  { key empty$
+			   { "no key, author, or editor in " cite$ * warning$
+				 cite$ #1 #3 substring$ }
+			 'key
+		   if$
+		 }
+		  { editor format.lab.names }
+	  if$
 	}
-	{	
-  " و دیگران"  'bbl.etal  :=
-	  " و "  'bbl.and  :=
-	authorfa format.lab.names 
-	}
-  if$
-
-	% Pop the function result and store it on s
-    's :=
-	% Push the two variables onto the stack
-	'bbl.and :=
-	'bbl.etal :=
-	% push the result into stack		
-	s
+	{ author format.lab.names }
+    if$
 }
 
 FUNCTION {author.key.organization.label}
@@ -1645,7 +1749,6 @@ ITERATE {call.type$}
 FUNCTION {end.bib}
 { newline$
   "\end{thebibliography}" write$ newline$
-  "\Persian" write$ newline$
 }
 
 EXECUTE {end.bib}
