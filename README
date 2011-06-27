@@ -1,5 +1,5 @@
-Persian-bib, V0.4			2010/01/25
-Author: Mahmood Amintoosi, http://webpages.iust.ac.ir/mamintoosi
+Persian-bib, V0.51			2010/07/28
+Author: Mahmood Amintoosi, http://profsite.sttu.ac.ir/mamintoosi
 
 These files are Persian translations of some of the classical BibTeX style files. 
 Unlike bib-fr package which can be used only for French references, the Persian .bst files simultaneously handle both Latin and Persian references. 
