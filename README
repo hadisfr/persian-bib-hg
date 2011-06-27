@@ -1,5 +1,14 @@
 Persian-bib, V0.51			2010/07/28
+Persian translations of some BibTeX styles
 Author: Mahmood Amintoosi, http://profsite.sttu.ac.ir/mamintoosi
+Copyright © 2009–2011
+It may be distributed and/or modified under the LaTeX Project Public License,
+version 1.3c or higher (your choice). The latest version of
+this license is at: http://www.latex-project.org/lppl.txt
+
+This work is “author-maintained” (as per LPPL maintenance status)
+by Mahmood Amintoosi
+------------------------------------------------------------------------------
 
 These files are Persian translations of some of the classical BibTeX style files. 
 Unlike bib-fr package which can be used only for French references, the Persian .bst files simultaneously handle both Latin and Persian references. 
@@ -19,3 +28,4 @@ If you modify anything, however, please change the name of the file.
 
 Mahmood Amintoosi  <m.amintoosi@gmail.com>
 http://bitbucket.org/mamintoosi/persian-bib/
+
