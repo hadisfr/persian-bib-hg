@@ -553,8 +553,8 @@ FUNCTION {format.bvolume}
     { "" }
     { bbl.volume volume tie.or.space.connect
       series empty$
-'skip$
-{ bbl.of * series emphasize * }
+       'skip$
+       { bbl.of * series emphasize * }
       if$
       "volume and number" number either.or.check
     }
@@ -637,18 +637,18 @@ FUNCTION {format.vol.num.pages}
   number empty$
     'skip$
     { "(" number * ")" * *
-      volume empty$
-{ "there's a number but no volume in " cite$ * warning$ }
-'skip$
-      if$
+     volume empty$
+      { "there's a number but no volume in " cite$ * warning$ }
+      'skip$
+     if$
     }
   if$
   pages empty$
     'skip$
     { duplicate$ empty$
-{ pop$ format.pages }
-{ ":" * pages n.dashify * }
-      if$
+      { pop$ format.pages }
+      { ":" * pages n.dashify * }
+     if$
     }
   if$
 }
