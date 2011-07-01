@@ -8,9 +8,6 @@
 %% of this license or (at your option) any later version.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% History
-%% 2011/02/7, Removing Persian and Latin commands, 
-%% 		Making each bbl word, as a function
 %% 
 %% Original Copyright
 %% File: `plainnat.bst'
@@ -351,7 +348,7 @@ FUNCTION {fin.entry}
   fa.isPersianLanguage
     {skip$}
     { newline$
-      "\end{LTRitems}" write$
+      "\end{LTRbibitems}" write$
       newline$
     }
   if$
@@ -638,7 +635,7 @@ FUNCTION {output.bibitem}
   fa.isPersianLanguage
     { skip$ }
     {
-     "\begin{LTRitems}" write$
+     "\begin{LTRbibitems}" write$
       newline$ 
      "\resetlatinfont " write$  
     }

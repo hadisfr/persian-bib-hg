@@ -197,8 +197,8 @@ FUNCTION {is.print.banners.to.terminal} { #1 }
 %% FILE VERSION AND BANNER %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-FUNCTION{bst.file.version} { "0.51" }
-FUNCTION{bst.file.date} { "2010/01/15" }
+FUNCTION{bst.file.version} { "0.6" }
+FUNCTION{bst.file.date} { "2011/07/01" }
 FUNCTION{bst.file.website} { "http://www.parsilatex.com" }
 FUNCTION{bst.file.authors} {"M.Amintoosi" }
 
@@ -209,7 +209,7 @@ FUNCTION {banner.message}
        top$
        "-- This is a BibTeX style for XePersian: " bst.file.website *
        %top$
-       %"-- See the " quote$ * "bibtex-fa_userguide.pdf" * quote$ * " manual for usage information." *
+       %"-- See the " quote$ * "Persian-bib-userguide.pdf" * quote$ * " manual for usage information." *
        top$
      }
      { skip$ }
@@ -283,7 +283,7 @@ FUNCTION {bbl.edition}
 {
 fa.isPersianLanguage
   {" ویرایش "}
-  {" ed. " }
+  {" ed." }
 if$
 }
 
@@ -291,7 +291,7 @@ FUNCTION {bbl.volume}
 {
 fa.isPersianLanguage
   {" جلد "}
-  { " vol."}
+  { " Volume "}
 if$
 }
 
@@ -307,23 +307,23 @@ FUNCTION {bbl.number}
 {
 fa.isPersianLanguage
   {" شماره " }
-  { " no." }
+  { " Number " }
 if$
 }
 
-FUNCTION {bbl.nr}
-{
-fa.isPersianLanguage
-  {" شماره "}
-  { " no." }
-if$
-}
+% FUNCTION {bbl.nr}
+% {
+% fa.isPersianLanguage
+  % {" شماره "}
+  % { " no." }
+% if$
+% }
 
 FUNCTION {bbl.in}
 {
 fa.isPersianLanguage
   {" در "}
-  { " in " }
+  { " In " }
 if$
 }
 
@@ -529,7 +529,7 @@ FUNCTION {fin.entry}
     fa.isPersianLanguage
     {skip$}
     {newline$
-     "\end{LTRitems}" write$
+     "\end{LTRbibitems}" write$
      newline$
     }
   if$
@@ -1490,7 +1490,7 @@ FUNCTION {output.bibitem}
   fa.isPersianLanguage
     { skip$ }
     { 
-      "\begin{LTRitems}" write$	
+      "\begin{LTRbibitems}" write$	
       newline$ 
       "\resetlatinfont " write$  
     }

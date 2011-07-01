@@ -8,12 +8,8 @@
 %% of this license or (at your option) any later version.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% History
-%% 2011/02/7, Removing Persian and Latin commands, 
-%% 		Making each bbl word, as a function
 %% 
 %% Original Copyright
-
 
 ENTRY
   { address
@@ -50,8 +46,8 @@ FUNCTION {is.print.banners.to.terminal} { #1 }
 %% FILE VERSION AND BANNER %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-FUNCTION{bst.file.version} { "0.51" }
-FUNCTION{bst.file.date} { "2011/02/7" }
+FUNCTION{bst.file.version} { "0.6" }
+FUNCTION{bst.file.date} { "2011/07/01" }
 FUNCTION{bst.file.website} { "http://www.parsilatex.com" }
 FUNCTION{bst.file.authors} {"M.Amintoosi and M.Vahedi" }
 
@@ -62,7 +58,7 @@ FUNCTION {banner.message}
        top$
        "-- This is a BibTeX style for XePersian: " bst.file.website *
        %top$
-       %"-- See the " quote$ * "bibtex-fa_userguide.pdf" * quote$ * " manual for usage information." *
+       %"-- See the " quote$ * "Persian-bib-userguide.pdf" * quote$ * " manual for usage information." *
        top$
      }
      { skip$ }
@@ -294,7 +290,7 @@ FUNCTION {output.bibitem}
   fa.isPersianLanguage
     { skip$ }
     {
-     "\begin{LTRitems}" write$
+     "\begin{LTRbibitems}" write$
       newline$ 
      "\resetlatinfont " write$  
     }
@@ -315,7 +311,7 @@ FUNCTION {fin.entry}
   fa.isPersianLanguage
     {skip$}
     { newline$
-      "\end{LTRitems}" write$
+      "\end{LTRbibitems}" write$
       newline$
     }
   if$
