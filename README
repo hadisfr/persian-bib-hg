@@ -1,4 +1,4 @@
-Persian-bib, V0.51			2011/07/01
+Persian-bib, V0.6			2011/07/10
 Persian translations of some BibTeX styles
 Author: Mahmood Amintoosi, http://profsite.sttu.ac.ir/mamintoosi
 Copyright © 2009–2011
@@ -11,19 +11,30 @@ by Mahmood Amintoosi
 ------------------------------------------------------------------------------
 
 These files are Persian translations of some of the classical BibTeX style files. 
-Unlike bib-fr package which can be used only for French references, the Persian .bst files simultaneously handle both Latin and Persian references. 
+Unlike bib-fr package which can be used only for French references, the Persian 
+.bst files simultaneously handle both Latin and Persian references. 
 
-File 'cp1256fa.csf' is prepared for correct sorting of Persian references and three fields named 'LANGUAGE', 'TRANSLATOR' and 'AUTHORFA' are defined. 
+File 'cp1256fa.csf' is prepared for correct sorting of Persian references and 
+three fields named 'LANGUAGE', 'TRANSLATOR' and 'AUTHORFA' are defined. 
 
-Setting 'LNAGUAGE' to 'Persian' makes the reference direction Left-to-Right and makes BibTeX to use Persian translations of keywords such as 'et al.'. Also some other modifications has been done. for example in Persian references, instead of Latin references, the book edition appears before the edition number. If this field is omitted or contains a word other than 'Persian', the reference considered as Left-to-Right reference.
+Setting 'LNAGUAGE' to 'Persian' makes the reference direction Left-to-Right and 
+makes BibTeX to use Persian translations of keywords such as 'et al.'. 
+Also some other modifications has been done. for example in Persian references, 
+instead of Latin references, the book edition appears before the edition number. 
+If this field is omitted or contains a word other than 'Persian', the reference 
+considered as Left-to-Right reference.
 
-'TRANSLATOR' field is used when a reference is translated by someone. His or her name appears in the reference in the proper location.
+'TRANSLATOR' field is used when a reference is translated by someone. 
+His or her name appears in the reference in the proper location.
 
-'AUTHORFA' is used with Asa-fa.bst, chicago-fa.bst and plainnat-fa.bst. The user should mention the Persian equivalent of the author(s) name(S), for proper referencing in the text. If this field is omitted, the original author name, in 'AUTHOR' will be used.
+'AUTHORFA' is used with Asa-fa.bst, chicago-fa.bst and plainnat-fa.bst. 
+The user should mention the Persian equivalent of the author(s) name(S), 
+for proper referencing in the text. If this field is omitted, the original 
+author name, in 'AUTHOR' will be used.
 
 Current Persian bst files work fine with hyperref and natbib packages.
 
-Persian translations of key-words such as 'et al.' can be changed with other translation.
+Persian translations of key-words such as 'et al.' can be changed with other translations.
 If you modify anything, however, please change the name of the file.
 
 Mahmood Amintoosi  <m.amintoosi@gmail.com>
