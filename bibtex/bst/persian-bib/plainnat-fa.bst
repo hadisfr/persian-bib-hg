@@ -2,10 +2,11 @@
 %% Bib. style "plainnat-fa", Persian (farsi)  version of plainnat.bst
 %%
 %% by: Mahmood Amintoosi, m.amintoosi@gmail.com, www.parsilatex.com
+
 %% For XePersian, a Persian Typesetting Package in XeTeX
 %% It may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either this version
-%% of this license or (at your option) any later version.
+%% conditions of the LaTeX Project Public License (version 1.3c), 
+%% either this version of this license or (at your option) any later version.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 
@@ -92,7 +93,42 @@ ENTRY
   {}
   { label extra.label sort.label short.list }
 
+
 INTEGERS { output.state before.all mid.sentence after.sentence after.block fa.isInLabel}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Persian Functions    %%
@@ -125,16 +161,16 @@ if$
 FUNCTION {bbl.editors}
 { 
 fa.isPersianLanguage
-  { "ویراستاران"}
-  { "eds."}
+  { " ویراستاران "}
+  { " editors"}
 if$
 }
 
 FUNCTION {bbl.editor}
 { 
 fa.isPersianLanguage
-  {  "ویراستار"}
-  {  "ed." }
+  {  "ویراستار "}
+  {  " editor" }
 if$
 }
 
@@ -150,7 +186,15 @@ FUNCTION {bbl.edition}
 {
 fa.isPersianLanguage
   {" ویرایش "}
-  {" ed. " }
+  {" edition" }
+if$
+}
+
+FUNCTION {bbl.bvolume}
+{
+fa.isPersianLanguage
+  {" جلد "}
+  { "volume"}
 if$
 }
 
@@ -158,7 +202,7 @@ FUNCTION {bbl.volume}
 {
 fa.isPersianLanguage
   {" جلد "}
-  { " vol."}
+  { "Volume"}
 if$
 }
 
@@ -174,15 +218,7 @@ FUNCTION {bbl.number}
 {
 fa.isPersianLanguage
   {" شماره " }
-  { " no." }
-if$
-}
-
-FUNCTION {bbl.nr}
-{
-fa.isPersianLanguage
-  {" شماره "}
-  { " no." }
+  { "number" }
 if$
 }
 
@@ -191,6 +227,16 @@ FUNCTION {bbl.in}
 fa.isPersianLanguage
   {" در "}
   { " in " }
+
+if$
+}
+
+FUNCTION {bbl.inInMid}
+{
+fa.isPersianLanguage
+  {" در "}
+  { "In " }
+
 if$
 }
 
@@ -198,15 +244,15 @@ FUNCTION {bbl.pages}
 {
 fa.isPersianLanguage
   {" صفحات "}
-  { " pp." }
+  { "pages" }
 if$
 }
 
 FUNCTION {bbl.page}
 {
 fa.isPersianLanguage
-  {" ص." }
-  { " p." }
+  {" صفحه " }
+  { "page" }
 if$
 }
 
@@ -214,7 +260,7 @@ FUNCTION {bbl.chapter}
 {
 fa.isPersianLanguage
   { " فصل " }
-  {" chap." }
+  {"chapter" }
 if$
 }
 
@@ -222,7 +268,7 @@ FUNCTION {bbl.techrep}
 {
 fa.isPersianLanguage
   { " گزارش طرح تحقیقی"}
-  { " Tech. Rep." }
+  { "Technical Report" }
 if$
 }
 
@@ -238,7 +284,7 @@ FUNCTION {bbl.phdthesis}
 {
 fa.isPersianLanguage
   {" پایان‌نامه دکترا" }
-  { " Ph.D. thesis" }
+  { " PhD thesis" }
 if$
 }
 
@@ -288,6 +334,7 @@ FUNCTION {bbl.translator}
 fa.isPersianLanguage
   { " ترجمه‌ی "}
   {" Translated by "}
+
 if$
 }
 
@@ -339,6 +386,25 @@ FUNCTION {output.check}
     'output.nonnull
   if$
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	
 FUNCTION {fin.entry}
@@ -444,7 +510,13 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
+
+
+
     { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't :=
+
+
+
       nameptr #1 >
         { namesleft #1 >
             { ", " * t * }
@@ -486,6 +558,8 @@ FUNCTION {format.editors}
     { "" }
     {fa.isPersianLanguage
     {editor num.names$ #1 >
+
+
 		{bbl.editors editor format.names * }
 		{bbl.editor editor format.names * }
 	if$
@@ -682,18 +756,28 @@ FUNCTION {n.dashify}
 
 FUNCTION {format.date}
 { year duplicate$ empty$
+
+
+
     { "empty year in " cite$ * warning$
        pop$ "" }
     'skip$
+
+
   if$
   month empty$
     'skip$
     { month
       " " * swap$ *
     }
+
+
+
   if$
   extra.label *
 }
+
+
 
 FUNCTION {format.btitle}
 { title emphasize
@@ -717,7 +801,7 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { bbl.volume volume tie.or.space.connect
+    { bbl.bvolume volume tie.or.space.connect
       series empty$
         'skip$
         { bbl.of * series emphasize * }
@@ -739,7 +823,7 @@ FUNCTION {format.number.series}
           number tie.or.space.connect
           series empty$
             { "there's a number but no series in " cite$ * warning$ }
-            { bbl.in * series * }
+            { bbl.inInMid * series * }
           if$
         }
       if$
@@ -867,6 +951,8 @@ FUNCTION {format.chapter.pages}
 
 FUNCTION {format.in.ed.booktitle}
 { booktitle empty$
+
+
     { "" }
     { editor empty$
         { bbl.in booktitle emphasize * }
@@ -919,6 +1005,21 @@ FUNCTION {format.article.crossref}
     { bbl.in }
   if$
   " \citet{" * crossref * "}" *
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 FUNCTION {format.book.crossref}
@@ -940,12 +1041,15 @@ FUNCTION {format.book.crossref}
               "" *
             }
             { "\emph{" * series * "}" * }
+
           if$
         }
         'skip$
+
       if$
     }
     'skip$
+
   if$
   " \citet{" * crossref * "}" *
 }
@@ -1018,6 +1122,7 @@ fa.isPersianLanguage
       { format.editors "author and editor" output.check 
 	    editor format.key output
 	  }
+
       { format.authors output.nonnull
         crossref missing$
       { "author and editor" editor either.or.check }
@@ -1076,6 +1181,7 @@ FUNCTION {inbook}
     { format.editors "author and editor" output.check
       editor format.key output
     }
+
     { format.authors output.nonnull
       crossref missing$
         { "author and editor" editor either.or.check }
@@ -1182,12 +1288,31 @@ FUNCTION {conference} { inproceedings }
 FUNCTION {manual}
 { output.bibitem
   format.authors output
+
+
+
+
+
+
+
+
   author format.key output
+
   new.block
   format.btitle "title" output.check
+
+
+
+
+
+
+
+
   organization address new.block.checkb
   organization output
   address output
+
+
   format.edition output
   format.date output
   format.url output
@@ -1203,10 +1328,8 @@ FUNCTION {mastersthesis}
   new.block
   format.title "title" output.check
   new.block
-  fa.isPersianLanguage
-    {" پایان‌نامه کارشناسی‌ارشد" format.thesis.type output.nonnull}
-    {" Master's thesis" format.thesis.type output.nonnull}
-  if$
+  bbl.mthesis
+  format.thesis.type output.nonnull
   school "school" output.check
   address output
   format.date "year" output.check
@@ -1240,10 +1363,9 @@ FUNCTION {phdthesis}
   new.block
   format.btitle "title" output.check
   new.block
-  fa.isPersianLanguage
-    {" پایان‌نامه دکترا" format.thesis.type output.nonnull}
-    {" Ph.D. disseration " format.thesis.type output.nonnull}
-  if$
+  bbl.phdthesis
+  format.thesis.type output.nonnull
+
   school "school" output.check
   address output
   format.date "year" output.check
@@ -1255,20 +1377,39 @@ FUNCTION {phdthesis}
 
 FUNCTION {proceedings}
 { output.bibitem
+
+
   format.editors output
   editor format.key output
+
   new.block
   format.btitle "title" output.check
   format.bvolume output
   format.number.series output
   address output
+
+
+
+
+
+
+
   format.date "year" output.check
+
+
+
   new.sentence
   organization output
+
+
+
+
   publisher output
   format.isbn output
   format.doi output
   format.url output
+
+
   new.block
   note output
   fin.entry
@@ -1535,12 +1676,17 @@ FUNCTION {sort.format.names}
             { "zzzzz" * }
             { numnames #2 > nameptr #2 = and
                 { "zz" * year field.or.null * "   " * }
+
                 'skip$
               if$
               t sortify *
             }
           if$
         }
+
+
+
+
         { t sortify * }
       if$
       nameptr #1 + 'nameptr :=
@@ -1631,6 +1777,7 @@ FUNCTION {presort}
   "    "
   *
   type$ "book" =
+
   type$ "inbook" =
   or
     'author.editor.sort
@@ -1651,6 +1798,8 @@ FUNCTION {presort}
   "    "
   *
   cite$
+
+
   *
   #1 entry.max$ substring$
   'sort.label :=
@@ -1671,6 +1820,7 @@ FUNCTION {initialize.longest.label}
 { "" 'longest.label :=
   #0 int.to.chr$ 'last.label :=
   "" 'next.extra :=
+
   #0 'longest.label.width :=
   #0 'last.extra.num :=
   #0 'number.label :=
@@ -1687,6 +1837,9 @@ FUNCTION {forward.pass}
     }
   if$
   number.label #1 + 'number.label :=
+
+
+
 }
 
 FUNCTION {reverse.pass}
@@ -1704,6 +1857,7 @@ FUNCTION {reverse.pass}
   label extra.label * 'label :=
 }
 
+
 EXECUTE {initialize.longest.label}
 
 ITERATE {forward.pass}
@@ -1718,6 +1872,7 @@ ITERATE {bib.sort.order}
 
 SORT
 
+
 FUNCTION {begin.bib}
 {   preamble$ empty$
     'skip$
@@ -1730,11 +1885,20 @@ FUNCTION {begin.bib}
   "\providecommand{\url}[1]{\texttt{#1}}"
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax"
+
+
   write$ newline$
   "  \providecommand{\doi}[1]{doi: #1}\else"
+
   write$ newline$
   "  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi"
+
   write$ newline$
+
+
+
+
+
 }
 
 EXECUTE {begin.bib}
@@ -1749,3 +1913,5 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
+
+

@@ -4,8 +4,8 @@
 %% by: Mahmood Amintoosi and Mostafa Vahedi, m.amintoosi@gmail.com
 %% For XePersian, a Persian Typesetting Package in XeTeX
 %% It may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either this version
-%% of this license or (at your option) any later version.
+%% conditions of the LaTeX Project Public License (version 1.3c), 
+%% either this version of this license or (at your option) any later version.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 
@@ -47,8 +47,8 @@ FUNCTION {is.print.banners.to.terminal} { #1 }
 %% FILE VERSION AND BANNER %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-FUNCTION{bst.file.version} { "0.8" }
-FUNCTION{bst.file.date} { "2015/03/14" }
+FUNCTION{bst.file.version} { "0.9" }
+FUNCTION{bst.file.date} { "2015/05/09" }
 FUNCTION{bst.file.website} { "http://www.parsilatex.com" }
 FUNCTION{bst.file.authors} {"M.Amintoosi and M.Vahedi" }
 

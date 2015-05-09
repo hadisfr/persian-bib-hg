@@ -4,8 +4,8 @@
 %% by: Mahmood Amintoosi and Mostafa Vahedi
 %% For XePersian, a Persian Typesetting Package in XeTeX
 %% It may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either this version
-%% of this license or (at your option) any later version.
+%% conditions of the LaTeX Project Public License (version 1.3c), 
+%% either this version of this license or (at your option) any later version.
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 
@@ -46,8 +46,8 @@ FUNCTION {is.print.banners.to.terminal} { #1 }
 %% FILE VERSION AND BANNER %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-FUNCTION{bst.file.version} { "0.8" }
-FUNCTION{bst.file.date} { "2015/03/14" }
+FUNCTION{bst.file.version} { "0.9" }
+FUNCTION{bst.file.date} { "2015/05/09" }
 FUNCTION{bst.file.website} { "http://www.parsilatex.com" }
 FUNCTION{bst.file.authors} {"M.Amintoosi and M.Vahedi" }
 
@@ -103,7 +103,7 @@ FUNCTION {bbl.editors}
 { 
 fa.isPersianLanguage
   { " ویراستاران "}
-  {" eds. "}
+  {" editors"}
 if$
 }
 
@@ -111,7 +111,7 @@ FUNCTION {bbl.editor}
 { 
 fa.isPersianLanguage
   {  " ویراستار "}
-  {" ed. " }
+  {" editor" }
 if$
 }
 
@@ -127,7 +127,15 @@ FUNCTION {bbl.edition}
 {
 fa.isPersianLanguage
   {" ویرایش "}
-  {" ed. " }
+  {" edition" }
+if$
+}
+
+FUNCTION {bbl.bvolume}
+{
+fa.isPersianLanguage
+  {" جلد "}
+  { "volume"}
 if$
 }
 
@@ -135,7 +143,7 @@ FUNCTION {bbl.volume}
 {
 fa.isPersianLanguage
   {" جلد "}
-  { " vol."}
+  { "Volume"}
 if$
 }
 
@@ -151,19 +159,19 @@ FUNCTION {bbl.number}
 {
 fa.isPersianLanguage
   {" شماره " }
-  { " no." }
-if$
-}
-
-FUNCTION {bbl.nr}
-{
-fa.isPersianLanguage
-  {" شماره "}
-  { " no." }
+  { "number" }
 if$
 }
 
 FUNCTION {bbl.in}
+{
+fa.isPersianLanguage
+  {" در "}
+  { "In " }
+if$
+}
+
+FUNCTION {bbl.inInMid}
 {
 fa.isPersianLanguage
   {" در "}
@@ -175,15 +183,15 @@ FUNCTION {bbl.pages}
 {
 fa.isPersianLanguage
   {" صفحات "}
-  { " pp." }
+  { "pages" }
 if$
 }
 
 FUNCTION {bbl.page}
 {
 fa.isPersianLanguage
-  {" ص." }
-  { " p." }
+  {" صفحه " }
+  { "page" }
 if$
 }
 
@@ -191,7 +199,7 @@ FUNCTION {bbl.chapter}
 {
 fa.isPersianLanguage
   { " فصل " }
-  {" chap." }
+  {"chapter" }
 if$
 }
 
@@ -199,7 +207,7 @@ FUNCTION {bbl.techrep}
 {
 fa.isPersianLanguage
   { " گزارش طرح تحقیقی"}
-  { " Tech. Rep." }
+  { "Technical Report" }
 if$
 }
 
@@ -207,7 +215,7 @@ FUNCTION {bbl.mthesis}
 {
 fa.isPersianLanguage
   {" پایان‌نامه کارشناسی‌ارشد"}
-  { " Master's thesis" }
+  { "Master's thesis" }
 if$
 }
 
@@ -215,7 +223,7 @@ FUNCTION {bbl.phdthesis}
 {
 fa.isPersianLanguage
   {" پایان‌نامه دکترا" }
-  { " Ph.D. thesis" }
+  { "PhD thesis" }
 if$
 }
 
@@ -552,10 +560,10 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { bbl.volume volume tie.or.space.connect
+    { bbl.bvolume volume tie.or.space.connect
       series empty$
-'skip$
-{ bbl.of * series emphasize * }
+		'skip$
+		{ bbl.of * series emphasize * }
       if$
       "volume and number" number either.or.check
     }
@@ -573,7 +581,7 @@ FUNCTION {format.number.series}
   number tie.or.space.connect
   series empty$
     { "there's a number but no series in " cite$ * warning$ }
-    { bbl.in * series * }
+    { bbl.inInMid * series * }
   if$
 }
       if$

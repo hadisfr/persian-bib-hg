@@ -2,10 +2,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %% FILE: $RCSfile: cp1256fa.csf,v $
-%%       $Revision: 1.1 $
-%%       $Date: 2015/03/14 $
 %%
-%% Date: 2015/03/14
+%% Date: 2015/05/09
 %% Author:-) Mahmood Amintoosi, m.amintoosi@gmail.com
 %%
 %% CHARACTER SET: Farsi (Persian) (CP 1256)
@@ -24,17 +22,14 @@
 %%      available by anonymous FTP from these Comprehensive TeX Archive
 %%      Network (CTAN) sites:
 %%
-%%          ftp.tex.ac.uk:/tex-archive/biblio/bibtex/8-bit
-%%          ftp.shsu.edu:/tex-archive/biblio/bibtex/8-bit
-%%          ftp.uni-stuttgart.de:/tex-archive/biblio/bibtex/8-bit
+%%          http://mirror.ctan.org/biblio/bibtex/8-bit
 %%
 %% CHANGE LOG
 %%
 %%      $Log: cp1256fa.csf,v $
-%%      Revision 1.0  2009/12/17
-%%      Initial revision
+%%      Initial Version  2009/12/17
 %%
-%%      Revision 1.1  2015/03/14
+%%      Version 0.9  2015/05/09
 %%      Reorder همزه (Move Up), adding ة and separating آ from ا
 %%      http://www.persianacademy.ir/UserFiles/File/D_Final.zip
 %%
