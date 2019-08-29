@@ -48,8 +48,8 @@ FUNCTION {is.print.banners.to.terminal} { #1 }
 %% FILE VERSION AND BANNER %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-FUNCTION{bst.file.version} { "0.9" }
-FUNCTION{bst.file.date} { "2015/05/09" }
+FUNCTION{bst.file.version} { "0.91" }
+FUNCTION{bst.file.date} { "2016/10/13" }
 FUNCTION{bst.file.website} { "http://www.parsilatex.com" }
 FUNCTION{bst.file.authors} {"M.Amintoosi and M.Vahedi" }
 
@@ -130,7 +130,7 @@ FUNCTION {bbl.edition}
 {
 fa.isPersianLanguage
   {" ویرایش "}
-  {" ed. " }
+  {"~ed." }
 if$
 }
 
@@ -138,7 +138,7 @@ FUNCTION {bbl.volume}
 {
 fa.isPersianLanguage
   {" جلد "}
-  { " vol."}
+  { "Vol.~"}
 if$
 }
 
@@ -178,7 +178,7 @@ FUNCTION {bbl.pages}
 {
 fa.isPersianLanguage
   {" صفحات "}
-  { " pp." }
+  { "pp.~" }
 if$
 }
 
@@ -186,7 +186,7 @@ FUNCTION {bbl.page}
 {
 fa.isPersianLanguage
   {" ص." }
-  { " p." }
+  { "p.~" }
 if$
 }
 
@@ -194,7 +194,7 @@ FUNCTION {bbl.chapter}
 {
 fa.isPersianLanguage
   { " فصل " }
-  {" chap." }
+  {"ch.~" }
 if$
 }
 
@@ -412,7 +412,7 @@ FUNCTION {emphasizeic}
 FUNCTION {scapify}
 { duplicate$ empty$
     { pop$ "" }
-    { "\textsc{ " swap$ * "}" * }
+    { "\textsc{" swap$ * "}" * }
   if$
 }
 
