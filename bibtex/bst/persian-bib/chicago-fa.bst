@@ -190,7 +190,7 @@ ENTRY
   {}
   { label.year extra.label sort.year sort.label }
 
-INTEGERS { output.state before.all mid.sentence after.sentence after.block fa.isInLabel}
+INTEGERS { output.state before.all mid.sentence after.sentence after.block fa.isInLabel latin }
 
 FUNCTION {is.print.banners.to.terminal} { #1 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2154,13 +2154,139 @@ FUNCTION {forward.pass}
   if$
 }
 
+FUNCTION {latin.to.abjad}
+{ chr.to.int$ 'latin :=
+  latin #97 =
+    { "آ" }
+    { skip$ }
+  if$
+  latin #98 =
+    { "ب" }
+    { skip$ }
+  if$
+  latin #99 =
+    { "ج" }
+    { skip$ }
+  if$
+  latin #100 =
+    { "د" }
+    { skip$ }
+  if$
+  latin #101 =
+    { "هـ" }
+    { skip$ }
+  if$
+  latin #102 =
+    { "و" }
+    { skip$ }
+  if$
+  latin #103 =
+    { "ز" }
+    { skip$ }
+  if$
+  latin #104 =
+    { "ح" }
+    { skip$ }
+  if$
+  latin #105 =
+    { "ط" }
+    { skip$ }
+  if$
+  latin #106 =
+    { "ی" }
+    { skip$ }
+  if$
+  latin #107 =
+    { "ک" }
+    { skip$ }
+  if$
+  latin #108 =
+    { "ل" }
+    { skip$ }
+  if$
+  latin #109 =
+    { "م" }
+    { skip$ }
+  if$
+  latin #110 =
+    { "ن" }
+    { skip$ }
+  if$
+  latin #111 =
+    { "س" }
+    { skip$ }
+  if$
+  latin #112 =
+    { "ع" }
+    { skip$ }
+  if$
+  latin #113 =
+    { "ف" }
+    { skip$ }
+  if$
+  latin #114 =
+    { "ص" }
+    { skip$ }
+  if$
+  latin #115 =
+    { "ق" }
+    { skip$ }
+  if$
+  latin #116 =
+    { "ر" }
+    { skip$ }
+  if$
+  latin #117 =
+    { "ش" }
+    { skip$ }
+  if$
+  latin #118 =
+    { "ت" }
+    { skip$ }
+  if$
+  latin #119 =
+    { "ث" }
+    { skip$ }
+  if$
+  latin #120 =
+    { "خ" }
+    { skip$ }
+  if$
+  latin #121 =
+    { "ذ" }
+    { skip$ }
+  if$
+  latin #122 =
+    { "ض" }
+    { skip$ }
+  if$
+  latin #123 =
+    { "ظ" }
+    { skip$ }
+  if$
+  latin #124 =
+    { "غ" }
+    { skip$ }
+  if$
+  latin #124 >
+    { latin #124 - 'latin :=
+      "-" latin int.to.str$ *
+    }
+    { skip$ }
+  if$
+}
+
 FUNCTION {reverse.pass}
 { next.extra "b" =
     { "a" 'extra.label := }
      'skip$
   if$
-  { "\lr{" extra.label * "}" * 'extra.label := }
   extra.label 'next.extra :=
+  extra.label empty$
+    { skip$ }
+    { extra.label latin.to.abjad 'extra.label := }
+  if$
+  label.year extra.label * 'sort.year :=
 }
 
 EXECUTE {initialize.extra.label.stuff}
