@@ -2159,7 +2159,7 @@ FUNCTION {reverse.pass}
     { "a" 'extra.label := }
      'skip$
   if$
-  label.year extra.label * 'sort.year :=
+  { "\lr{" extra.label * "}" * 'extra.label := }
   extra.label 'next.extra :=
 }
 
