@@ -569,8 +569,8 @@ FUNCTION {format.names}
 			{s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't := }
 			{s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't := }
 		if$
-	
-	
+
+
       nameptr #1 >
         {
           namesleft #1 >
@@ -1475,7 +1475,8 @@ FUNCTION {format.lab.names}
 	  #1 'fa.isInLabel :=
 	}
 	if$  
-	
+
+
   s #1 "{vv~}{ll}" format.name$
   s num.names$ duplicate$
   #2 >

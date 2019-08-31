@@ -310,11 +310,11 @@ FUNCTION {output.bibitem}
   fa.isPersianLanguage
     {
       "\Persiantext{" write$
-	  newline$
+    newline$
     }
     { 
-	  skip$
-	}
+    skip$
+  }
   if$
   ""
   before.all 'output.state :=
@@ -326,9 +326,9 @@ FUNCTION {fin.entry}
   newline$
   fa.isPersianLanguage
     { 
-	  "}" write$
-	  newline$
-	  newline$
+    "}" write$
+    newline$
+    newline$
       "\end{RTLbibitems}" write$
       newline$
     }

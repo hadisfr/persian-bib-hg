@@ -97,39 +97,6 @@ ENTRY
 INTEGERS { output.state before.all mid.sentence after.sentence after.block fa.isInLabel}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Persian Functions    %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -341,7 +308,8 @@ if$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of Persian Functions %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
+
+
 FUNCTION {init.state.consts}
 { #0 'before.all :=
   #1 'mid.sentence :=
@@ -388,25 +356,6 @@ FUNCTION {output.check}
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 FUNCTION {fin.entry}
 { add.period$
   write$
@@ -512,9 +461,7 @@ FUNCTION {format.names}
     { namesleft #0 > }
 
 
-
     { s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't :=
-
 
 
       nameptr #1 >
@@ -525,8 +472,8 @@ FUNCTION {format.names}
                 'skip$
               if$
               t "others" =
-				{ bbl.etal * }
-				{ bbl.and * t * }
+        { bbl.etal * }
+        { bbl.and * t * }
               if$
             }
           if$
@@ -560,17 +507,17 @@ FUNCTION {format.editors}
     {editor num.names$ #1 >
 
 
-		{bbl.editors editor format.names * }
-		{bbl.editor editor format.names * }
-	if$
-	}
+    {bbl.editors editor format.names * }
+    {bbl.editor editor format.names * }
+  if$
+  }
     {
     editor format.names
-	editor num.names$ #1 >
-		{ ", " bbl.editors * *}
-		{ ", " bbl.editor * *}
-	if$
-	}
+  editor num.names$ #1 >
+    { ", " bbl.editors * *}
+    { ", " bbl.editor * *}
+  if$
+  }
     if$
     }
    if$
@@ -581,12 +528,12 @@ FUNCTION {format.translators}
     { "" }
     { fa.isPersianLanguage
     {
-	bbl.translator translator format.names *
-	}
-	{
-	  translator format.names
-	", " bbl.translator * *
-	}
+  bbl.translator translator format.names *
+  }
+  {
+    translator format.names
+  ", " bbl.translator * *
+  }
     if$
     }
   if$
@@ -758,7 +705,6 @@ FUNCTION {format.date}
 { year duplicate$ empty$
 
 
-
     { "empty year in " cite$ * warning$
        pop$ "" }
     'skip$
@@ -772,11 +718,9 @@ FUNCTION {format.date}
     }
 
 
-
   if$
   extra.label *
 }
-
 
 
 FUNCTION {format.btitle}
@@ -816,8 +760,8 @@ FUNCTION {format.number.series}
     { number empty$
         { series field.or.null }
         { output.state mid.sentence =
-			{ bbl.number }
-			{ bbl.number "t" change.case$ }
+      { bbl.number }
+      { bbl.number "t" change.case$ }
 
           if$
           number tie.or.space.connect
@@ -1007,19 +951,6 @@ FUNCTION {format.article.crossref}
   " \citet{" * crossref * "}" *
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 FUNCTION {format.book.crossref}
@@ -1107,11 +1038,12 @@ FUNCTION {article}
 
 FUNCTION {book}
 { output.bibitem
-      
+
+
 fa.isPersianLanguage
   {
     format.authors  output
-	author format.key output
+  author format.key output
     new.block
     format.btitle "title" output.check
     new.block
@@ -1120,8 +1052,8 @@ fa.isPersianLanguage
   }
   { author empty$
       { format.editors "author and editor" output.check 
-	    editor format.key output
-	  }
+      editor format.key output
+    }
 
       { format.authors output.nonnull
         crossref missing$
@@ -1134,7 +1066,8 @@ fa.isPersianLanguage
     format.btitle "title" output.check
   }
   if$
-  
+
+
   crossref missing$
     { format.bvolume output
       new.block
@@ -1290,22 +1223,10 @@ FUNCTION {manual}
   format.authors output
 
 
-
-
-
-
-
-
   author format.key output
 
   new.block
   format.btitle "title" output.check
-
-
-
-
-
-
 
 
   organization address new.block.checkb
@@ -1389,19 +1310,11 @@ FUNCTION {proceedings}
   address output
 
 
-
-
-
-
-
   format.date "year" output.check
-
 
 
   new.sentence
   organization output
-
-
 
 
   publisher output
@@ -1473,7 +1386,6 @@ MACRO {nov} {"November"}
 MACRO {dec} {"December"}
 
 
-
 MACRO {acmcs} {"ACM Computing Surveys"}
 
 MACRO {acta} {"Acta Informatica"}
@@ -1541,16 +1453,16 @@ FUNCTION {chop.word}
 
 FUNCTION {format.lab.names}
 { 's :=
-	authorfa empty$
-	{
-	  %skip$
-	  #0 'fa.isInLabel :=
-	}
-	{% If authorfa exists
-	  authorfa 's  :=
-	  #1 'fa.isInLabel :=
-	}
-	if$  
+  authorfa empty$
+  {
+    %skip$
+    #0 'fa.isInLabel :=
+  }
+  {% If authorfa exists
+    authorfa 's  :=
+    #1 'fa.isInLabel :=
+  }
+  if$  
 
   s #1 "{vv~}{ll}" format.name$
   s num.names$ duplicate$
@@ -1566,15 +1478,15 @@ FUNCTION {format.lab.names}
       if$
     }
   if$
-  #0 'fa.isInLabel :=  %reset  fa.isInLabel	
+  #0 'fa.isInLabel :=  %reset  fa.isInLabel 
 }
 
 FUNCTION {author.key.label}
 {
   author empty$
   { key empty$
-	{ cite$ #1 #3 substring$ }
-	'key
+  { cite$ #1 #3 substring$ }
+  'key
      if$
   }
   { author format.lab.names }
@@ -1583,18 +1495,18 @@ FUNCTION {author.key.label}
 
 FUNCTION {author.editor.key.label}
 { 
-	author empty$
-	{ editor empty$
-		  { key empty$
-			   { "no key, author, or editor in " cite$ * warning$
-				 cite$ #1 #3 substring$ }
-			 'key
-		   if$
-		 }
-		  { editor format.lab.names }
-	  if$
-	}
-	{ author format.lab.names }
+  author empty$
+  { editor empty$
+      { key empty$
+         { "no key, author, or editor in " cite$ * warning$
+         cite$ #1 #3 substring$ }
+       'key
+       if$
+     }
+      { editor format.lab.names }
+    if$
+  }
+  { author format.lab.names }
     if$
 }
 
@@ -1683,8 +1595,6 @@ FUNCTION {sort.format.names}
             }
           if$
         }
-
-
 
 
         { t sortify * }
@@ -1839,7 +1749,6 @@ FUNCTION {forward.pass}
   number.label #1 + 'number.label :=
 
 
-
 }
 
 FUNCTION {reverse.pass}
@@ -1896,9 +1805,6 @@ FUNCTION {begin.bib}
   write$ newline$
 
 
-
-
-
 }
 
 EXECUTE {begin.bib}
@@ -1913,5 +1819,4 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
-
 

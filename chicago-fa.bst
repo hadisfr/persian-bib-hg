@@ -163,7 +163,7 @@
 ENTRY
   { address
     author
-	authorfa
+  authorfa
     booktitle
     chapter
     edition
@@ -172,7 +172,7 @@ ENTRY
     institution
     journal
     key
-	language
+  language
     month
     note
     number
@@ -182,7 +182,7 @@ ENTRY
     school
     series
     title
-	translator
+  translator
     type
     volume
     year
@@ -645,18 +645,18 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { nameptr #1 =
-		{
-		fa.isPersianLanguage
-			{s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't := }
-			{s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't := }
-		if$
-		}
-		{
-		fa.isPersianLanguage
-			{s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-			{s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-		if$
-		}
+    {
+    fa.isPersianLanguage
+      {s nameptr "{vv~}{ll}{, jj}{, ff}" format.name$ 't := }
+      {s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't := }
+    if$
+    }
+    {
+    fa.isPersianLanguage
+      {s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+      {s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+    if$
+    }
       if$
       nameptr #1 >
         { namesleft #1 >
@@ -723,10 +723,10 @@ FUNCTION {format.names.fml}
   numnames 'namesleft :=
     { namesleft #0 > }
     { 
-		fa.isPersianLanguage
-			{s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
-			{s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
-		if$
+    fa.isPersianLanguage
+      {s nameptr "{ff~}{vv~}{ll}{, jj}" format.name$ 't := }
+      {s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't := }
+    if$
       nameptr #1 >
         { namesleft #1 >
               { ", " * t * }
@@ -758,7 +758,6 @@ FUNCTION {format.authors}
 }
 
 
-
 FUNCTION {format.key}
 { empty$
     { key field.or.null }
@@ -774,23 +773,23 @@ FUNCTION {format.key}
 %
 FUNCTION {format.editors.fml}
 { editor empty$
-	{ "" }
+  { "" }
     { 
-		fa.isPersianLanguage
-		{
-			editor num.names$ #1 >
-			{bbl.editors editor format.names.fml * }
-			{bbl.editor editor format.names.fml * }
-			if$
-		}
-		{ editor format.names.fml
-		  editor num.names$ #1 >
-			{ " (Eds.)" * }
-			{ " (Ed.)" * }
-		  if$
-		}
-		if$
-	}
+    fa.isPersianLanguage
+    {
+      editor num.names$ #1 >
+      {bbl.editors editor format.names.fml * }
+      {bbl.editor editor format.names.fml * }
+      if$
+    }
+    { editor format.names.fml
+      editor num.names$ #1 >
+      { " (Eds.)" * }
+      { " (Ed.)" * }
+      if$
+    }
+    if$
+  }
   if$  
 }
 
@@ -802,22 +801,22 @@ FUNCTION {format.editors}
 { editor empty$
     { "" }
     { 
-		fa.isPersianLanguage
-		{
-			editor num.names$ #1 >
-			{bbl.editors editor format.names * }
-			{bbl.editor editor format.names * }
-			if$
-		}
-		{
-		  editor format.names
-		  editor num.names$ #1 >
-			{ bbl.editors * }
-			{ bbl.editor * }
-		  if$
-		}
-		if$
-	}
+    fa.isPersianLanguage
+    {
+      editor num.names$ #1 >
+      {bbl.editors editor format.names * }
+      {bbl.editor editor format.names * }
+      if$
+    }
+    {
+      editor format.names
+      editor num.names$ #1 >
+      { bbl.editors * }
+      { bbl.editor * }
+      if$
+    }
+    if$
+  }
   if$
 }
 
@@ -825,14 +824,14 @@ FUNCTION {format.translators}
 { translator empty$
     { "" }
     { fa.isPersianLanguage
-		{
-		" ترجمه‌ی " translator format.names *
-		}
-		{
-		  translator format.names
-		", translated by: " *
-		}
-		if$
+    {
+    " ترجمه‌ی " translator format.names *
+    }
+    {
+      translator format.names
+    ", translated by: " *
+    }
+    if$
     }
   if$
 }
@@ -889,18 +888,18 @@ FUNCTION {format.btitle}
   { title empty$
     { title emphasize }
     { volume empty$     % gnp - check for volume, then don't need period
-		{
-		fa.isPersianLanguage
-			{ "{\em " title * "\/} (" * bbl.edition * edition *  ")" * "." * }
-			{ "{\em " title * "\/} (" * edition * bbl.edition * ")" * "." * }
-		if$
-		}
-		{
-		fa.isPersianLanguage	   
-			{ "{\em " title * "\/} (" * bbl.edition * edition *  ")" * }
-			{ "{\em " title * "\/} (" * edition * bbl.edition * ")" * }
-		if$
-	   }
+    {
+    fa.isPersianLanguage
+      { "{\em " title * "\/} (" * bbl.edition * edition *  ")" * "." * }
+      { "{\em " title * "\/} (" * edition * bbl.edition * ")" * "." * }
+    if$
+    }
+    {
+    fa.isPersianLanguage     
+      { "{\em " title * "\/} (" * bbl.edition * edition *  ")" * }
+      { "{\em " title * "\/} (" * edition * bbl.edition * ")" * }
+    if$
+     }
       if$
     }
     if$
@@ -914,18 +913,18 @@ FUNCTION {format.emphasize.booktitle}
   { booktitle empty$
     { booktitle emphasize }
     { volume empty$    % gnp - extra period an error if book has a volume
-		{
-		fa.isPersianLanguage
-			{ "{\em " booktitle * "\/} (" * bbl.edition * edition *  ")" * "." * }
-			{ "{\em " booktitle * "\/} (" * edition * bbl.edition * ")" * "." * }
-		if$
-		}
-		{
-		fa.isPersianLanguage	   
-			{ "{\em " booktitle * "\/} (" * bbl.edition * edition *  ")" * }
-			{ "{\em " booktitle * "\/} (" * edition * bbl.edition * ")" * }
-		if$
-	   }
+    {
+    fa.isPersianLanguage
+      { "{\em " booktitle * "\/} (" * bbl.edition * edition *  ")" * "." * }
+      { "{\em " booktitle * "\/} (" * edition * bbl.edition * ")" * "." * }
+    if$
+    }
+    {
+    fa.isPersianLanguage     
+      { "{\em " booktitle * "\/} (" * bbl.edition * edition *  ")" * }
+      { "{\em " booktitle * "\/} (" * edition * bbl.edition * ")" * }
+    if$
+     }
       if$
       }
     if$
@@ -1007,8 +1006,8 @@ FUNCTION {format.pages}
 { pages empty$
   { "" }
   { pages multi.page.check
-	{ bbl.pages pages n.dashify tie.or.space.connect } % gnp - removed ()
-	{ bbl.page pages tie.or.space.connect }
+  { bbl.pages pages n.dashify tie.or.space.connect } % gnp - removed ()
+  { bbl.page pages tie.or.space.connect }
     if$
   }
   if$
@@ -1180,37 +1179,37 @@ FUNCTION {format.incoll.inproc.crossref}
 %
 FUNCTION {format.lab.names}
 { 's :=
-	authorfa empty$
-	{
-	  %skip$
-	  #0 'fa.isInLabel :=
-	}
-	{% If authorfa exists
-	  authorfa 's  :=
-	  #1 'fa.isInLabel :=
-	}
-	if$  
+  authorfa empty$
+  {
+    %skip$
+    #0 'fa.isInLabel :=
+  }
+  {% If authorfa exists
+    authorfa 's  :=
+    #1 'fa.isInLabel :=
+  }
+  if$  
 
   s num.names$ 'numnames :=
   numnames #2 >    % change number to number of others allowed before
-		   % forcing "et al".
+       % forcing "et al".
     { s #1 "{vv~}{ll}" format.name$ bbl.etal * }
     {
       numnames #1 - 'namesleft :=
       #2 'nameptr :=
       s #1 "{vv~}{ll}" format.name$
-	{ namesleft #0 > }
-	{ nameptr numnames =
-	    { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-		{ bbl.etal * }
-		{ bbl.and * s nameptr "{vv~}{ll}" format.name$ * }
-	      if$
-	    }
-	    { ", " * s nameptr "{vv~}{ll}" format.name$ * }
-	  if$
-	  nameptr #1 + 'nameptr :=
-	  namesleft #1 - 'namesleft :=
-	}
+  { namesleft #0 > }
+  { nameptr numnames =
+      { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "others" =
+    { bbl.etal * }
+    { bbl.and * s nameptr "{vv~}{ll}" format.name$ * }
+        if$
+      }
+      { ", " * s nameptr "{vv~}{ll}" format.name$ * }
+    if$
+    nameptr #1 + 'nameptr :=
+    namesleft #1 - 'namesleft :=
+  }
       while$
     }
   if$
@@ -1219,113 +1218,113 @@ FUNCTION {format.lab.names}
 
 FUNCTION {author.key.label}
 { 
-		author empty$
-		{ key empty$
-			{ 
-			"no key, author in " cite$ * warning$
-			cite$ #1 #3 substring$ }
-			'key
-		  if$
-		}
-		{ author format.lab.names }
-	  if$
+    author empty$
+    { key empty$
+      { 
+      "no key, author in " cite$ * warning$
+      cite$ #1 #3 substring$ }
+      'key
+      if$
+    }
+    { author format.lab.names }
+    if$
 %
-%	% Push the two variables onto the stack
-%	bbl.etal
-%	bbl.and
-%	authorfa empty$
-%	{ 
-%		fa.isPersianLanguage
-%		{	
-%		  " و دیگران"  'bbl.etal  :=
-%		  " و "  'bbl.and  :=
-%	    }
-%		{	
-%		  bbl.etal  'bbl.etal  :=
-%		  " and "  'bbl.and  :=
-%		}
-%	    if$
-%		
-%		author empty$
-%		{ key empty$
-%			{ 
-%			"no key, author in " cite$ * warning$
-%			cite$ #1 #3 substring$ }
-%			'key
-%		  if$
-%		}
-%		{ author format.lab.names }
-%	  if$
-%	}
-%	{	
+% % Push the two variables onto the stack
+% bbl.etal
+% bbl.and
+% authorfa empty$
+% { 
+%   fa.isPersianLanguage
+%   { 
+%     " و دیگران"  'bbl.etal  :=
+%     " و "  'bbl.and  :=
+%     }
+%   { 
+%     bbl.etal  'bbl.etal  :=
+%     " and "  'bbl.and  :=
+%   }
+%     if$
+%   
+%   author empty$
+%   { key empty$
+%     { 
+%     "no key, author in " cite$ * warning$
+%     cite$ #1 #3 substring$ }
+%     'key
+%     if$
+%   }
+%   { author format.lab.names }
+%   if$
+% }
+% { 
 %  " و دیگران"  'bbl.etal  :=
-%	  " و "  'bbl.and  :=
-%	authorfa format.lab.names 
-%	}
+%   " و "  'bbl.and  :=
+% authorfa format.lab.names 
+% }
 %  if$
 %
-%	% Pop the function result and store it on s
+% % Pop the function result and store it on s
 %    's :=
-%	% Push the two variables onto the stack
-%	'bbl.and :=
-%	'bbl.etal :=
-%	% push the result into stack		
-%	s
+% % Push the two variables onto the stack
+% 'bbl.and :=
+% 'bbl.etal :=
+% % push the result into stack    
+% s
 }
 
 FUNCTION {editor.key.label}
 { 
-		editor empty$
-			{ key empty$
-				   { "no key, editor in " cite$ * warning$
-					 cite$ #1 #3 substring$ }
-				 'key
-			   if$
-			}
-		    { editor format.lab.names }
-	    if$
-%	% Push the two variables onto the stack
-%	bbl.etal
-%	bbl.and
-%	authorfa empty$
-%	{ 
-%		fa.isPersianLanguage
-%		{	
-%		  " و دیگران"  'bbl.etal  :=
-%		  " و "  'bbl.and  :=
-%	    }
-%		{	
-%		  bbl.etal  'bbl.etal  :=
-%		  " and "  'bbl.and  :=
-%		}
-%	    if$
-%		
-%		
-%		editor empty$
-%			{ key empty$
-%				   { "no key, editor in " cite$ * warning$
-%					 cite$ #1 #3 substring$ }
-%				 'key
-%			   if$
-%			}
-%		    { editor format.lab.names }
-%	    if$
+    editor empty$
+      { key empty$
+           { "no key, editor in " cite$ * warning$
+           cite$ #1 #3 substring$ }
+         'key
+         if$
+      }
+        { editor format.lab.names }
+      if$
+% % Push the two variables onto the stack
+% bbl.etal
+% bbl.and
+% authorfa empty$
+% { 
+%   fa.isPersianLanguage
+%   { 
+%     " و دیگران"  'bbl.etal  :=
+%     " و "  'bbl.and  :=
+%     }
+%   { 
+%     bbl.etal  'bbl.etal  :=
+%     " and "  'bbl.and  :=
+%   }
+%     if$
+%   
+%   
+%   editor empty$
+%     { key empty$
+%          { "no key, editor in " cite$ * warning$
+%          cite$ #1 #3 substring$ }
+%        'key
+%        if$
+%     }
+%       { editor format.lab.names }
+%     if$
 %
-%	}
-%	{	
+% }
+% { 
 %  " و دیگران"  'bbl.etal  :=
-%	  " و "  'bbl.and  :=
-%	authorfa format.lab.names 
-%	}
+%   " و "  'bbl.and  :=
+% authorfa format.lab.names 
+% }
 %  if$
 %
-%	% Pop the function result and store it on s
+% % Pop the function result and store it on s
 %    's :=
-%	% Push the two variables onto the stack
-%	'bbl.and :=
-%	'bbl.etal :=
-%	% push the result into stack		
-%	s
+% % Push the two variables onto the stack
+% 'bbl.and :=
+% 'bbl.etal :=
+% % push the result into stack    
+% s
 }
 
 FUNCTION {author.key.organization.label}
@@ -1334,12 +1333,12 @@ FUNCTION {author.key.organization.label}
 %
 { author empty$
     { organization empty$
-	{ key empty$
-	    { "no key, author or organization in " cite$ * warning$
+  { key empty$
+      { "no key, author or organization in " cite$ * warning$
               cite$ #1 #3 substring$ }
-	    'key
-	  if$
-	}
+      'key
+    if$
+  }
         { organization }
       if$
     }
@@ -1355,12 +1354,12 @@ FUNCTION {editor.key.organization.label}
 %
 { editor empty$
     { organization empty$
-	{ key empty$
-	    { "no key, editor or organization in " cite$ * warning$
+  { key empty$
+      { "no key, editor or organization in " cite$ * warning$
               cite$ #1 #3 substring$ }
-	    'key
-	  if$
-	}
+      'key
+    if$
+  }
         { organization }
       if$
     }
@@ -1372,66 +1371,66 @@ FUNCTION {editor.key.organization.label}
 
 FUNCTION {author.editor.key.label}
 { 
-		author empty$
-		{ editor empty$
-			  { key empty$
-				   { "no key, author, or editor in " cite$ * warning$
-					 cite$ #1 #3 substring$ }
-				 'key
-			   if$
-			 }
-			  { editor format.lab.names }
-		  if$
-		}
-		{ author format.lab.names }
-	    if$
+    author empty$
+    { editor empty$
+        { key empty$
+           { "no key, author, or editor in " cite$ * warning$
+           cite$ #1 #3 substring$ }
+         'key
+         if$
+       }
+        { editor format.lab.names }
+      if$
+    }
+    { author format.lab.names }
+      if$
 
 %
-%	% Push the two variables onto the stack
-%	bbl.etal
-%	bbl.and
-%	authorfa empty$
-%	{ 
-%		fa.isPersianLanguage
-%		{	
-%		  " و دیگران"  'bbl.etal  :=
-%		  " و "  'bbl.and  :=
-%	    }
-%		{	
-%		  bbl.etal  'bbl.etal  :=
-%		  " and "  'bbl.and  :=
-%		}
-%	    if$
-%		
-%		author empty$
-%		{ editor empty$
-%			  { key empty$
-%				   { "no key, author, or editor in " cite$ * warning$
-%					 cite$ #1 #3 substring$ }
-%				 'key
-%			   if$
-%			 }
-%			  { editor format.lab.names }
-%		  if$
-%		}
-%		{ author format.lab.names }
-%	    if$
+% % Push the two variables onto the stack
+% bbl.etal
+% bbl.and
+% authorfa empty$
+% { 
+%   fa.isPersianLanguage
+%   { 
+%     " و دیگران"  'bbl.etal  :=
+%     " و "  'bbl.and  :=
+%     }
+%   { 
+%     bbl.etal  'bbl.etal  :=
+%     " and "  'bbl.and  :=
+%   }
+%     if$
+%   
+%   author empty$
+%   { editor empty$
+%       { key empty$
+%          { "no key, author, or editor in " cite$ * warning$
+%          cite$ #1 #3 substring$ }
+%        'key
+%        if$
+%      }
+%       { editor format.lab.names }
+%     if$
+%   }
+%   { author format.lab.names }
+%     if$
 %
-%	}
-%	{	
+% }
+% { 
 %  " و دیگران"  'bbl.etal  :=
-%	  " و "  'bbl.and  :=
-%	authorfa format.lab.names 
-%	}
+%   " و "  'bbl.and  :=
+% authorfa format.lab.names 
+% }
 %  if$
 %
-%	% Pop the function result and store it on s
+% % Pop the function result and store it on s
 %    's :=
-%	% Push the two variables onto the stack
-%	'bbl.and :=
-%	'bbl.etal :=
-%	% push the result into stack		
-%	s
+% % Push the two variables onto the stack
+% 'bbl.and :=
+% 'bbl.etal :=
+% % push the result into stack    
+% s
 }
 
 FUNCTION {calc.label}
@@ -1446,16 +1445,16 @@ FUNCTION {calc.label}
   type$ "book" =
   type$ "inbook" =
   or
-	'author.editor.key.label
-	{ type$ "proceedings" =
-	'editor.key.organization.label
-	{ type$ "manual" =
-		'author.key.organization.label
-		'author.key.label
-	  if$
-	}
-	  if$
-	}
+  'author.editor.key.label
+  { type$ "proceedings" =
+  'editor.key.organization.label
+  { type$ "manual" =
+    'author.key.organization.label
+    'author.key.label
+    if$
+  }
+    if$
+  }
   if$
 
   author empty$  % generate the full label citation information.
@@ -1490,7 +1489,7 @@ FUNCTION {output.bibitem}
   fa.isPersianLanguage
     { skip$ }
     { 
-      "\begin{LTRbibitems}" write$	
+      "\begin{LTRbibitems}" write$  
       newline$ 
       "\resetlatinfont " write$  
     }
@@ -1534,37 +1533,37 @@ FUNCTION {article}
 FUNCTION {book}
 { output.bibitem
   fa.isPersianLanguage
-	{
-		format.authors  output.nonnull
-		output.year.check
-		new.block
-		format.btitle 
-		"title" output.check
-		%format.edition output
-		new.block
-		format.translators output
-		format.editors  "author and editor" output.check%output
-	}
-	{
-	  author empty$
-		{ format.editors
-		  "author and editor" output.check }
-		{ format.authors
-		  output.nonnull
-		  crossref missing$
-			{ "author and editor" editor either.or.check }
-			'skip$
-		  if$
-		}
-	  if$
-	  output.year.check       % added
-	  new.block
-	  format.btitle
-	  "title" output.check
-	}
+  {
+    format.authors  output.nonnull
+    output.year.check
+    new.block
+    format.btitle 
+    "title" output.check
+    %format.edition output
+    new.block
+    format.translators output
+    format.editors  "author and editor" output.check%output
+  }
+  {
+    author empty$
+    { format.editors
+      "author and editor" output.check }
+    { format.authors
+      output.nonnull
+      crossref missing$
+      { "author and editor" editor either.or.check }
+      'skip$
+      if$
+    }
+    if$
+    output.year.check       % added
+    new.block
+    format.btitle
+    "title" output.check
+  }
   if$
-  
-  
+
+
   crossref missing$
     { format.bvolume output
       new.block
@@ -1666,7 +1665,7 @@ FUNCTION {incollection}
 
   }
   { format.incoll.inproc.crossref
-	output.nonnull
+  output.nonnull
     format.chapter.pages output
 
   }
@@ -1688,7 +1687,7 @@ FUNCTION {inproceedings}
   new.block
   crossref missing$
     { format.in.ed.booktitle
-	  "booktitle" output.check
+    "booktitle" output.check
       format.bvolume output
       format.number.series output
       address output
@@ -1931,7 +1930,6 @@ READ
 FUNCTION {sortify}
 
 
-
 { purify$
   "l" change.case$
 
@@ -1948,7 +1946,6 @@ FUNCTION {chop.word}
     's
   if$
 }
-
 
 
 FUNCTION {sort.format.names}
@@ -2003,7 +2000,6 @@ FUNCTION {author.sort}
 }
 
 
-
 FUNCTION {editor.sort}
 { editor empty$
     { key empty$
@@ -2044,16 +2040,16 @@ FUNCTION {author.organization.sort}
 %
 { author empty$
     { organization empty$
-	{ key empty$
-	    { "to sort, need author, organization, or key in " cite$ * warning$
+  { key empty$
+      { "to sort, need author, organization, or key in " cite$ * warning$
 
 
-	      ""
-	    }
-	    { key sortify }
-	  if$
-	}
-	{ organization sortify }
+        ""
+      }
+      { key sortify }
+    if$
+  }
+  { organization sortify }
       if$
     }
     { author sort.format.names }
@@ -2067,16 +2063,16 @@ FUNCTION {editor.organization.sort}
 %
 { editor empty$
     { organization empty$
-	{ key empty$
-	    { "to sort, need editor, organization, or key in " cite$ * warning$
+  { key empty$
+      { "to sort, need editor, organization, or key in " cite$ * warning$
 
 
-	      ""
-	    }
-	    { key sortify }
-	  if$
-	}
-	{ organization sortify }
+        ""
+      }
+      { key sortify }
+    if$
+  }
+  { organization sortify }
       if$
     }
     { editor sort.format.names }
@@ -2100,12 +2096,12 @@ FUNCTION {presort}
   or
     'author.editor.sort
     { type$ "proceedings" =
-	'editor.organization.sort
-	{ type$ "manual" =
-	    'author.organization.sort
-	    'author.sort
-	  if$
-	}
+  'editor.organization.sort
+  { type$ "manual" =
+      'author.organization.sort
+      'author.sort
+    if$
+  }
       if$
     }
   if$

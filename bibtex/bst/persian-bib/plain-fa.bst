@@ -562,8 +562,8 @@ FUNCTION {format.bvolume}
     { "" }
     { bbl.bvolume volume tie.or.space.connect
       series empty$
-		'skip$
-		{ bbl.of * series emphasize * }
+    'skip$
+    { bbl.of * series emphasize * }
       if$
       "volume and number" number either.or.check
     }
